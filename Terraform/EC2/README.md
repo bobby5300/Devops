@@ -1,1 +1,0 @@
-This will help for the EC2 Details for AWS
