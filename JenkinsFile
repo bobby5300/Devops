@@ -4,7 +4,7 @@ pipeline {
     
     stages {
 
-        stage('checkout' from Dev) {
+        stage('checkout from Dev Branch') {
 
             steps{
 
