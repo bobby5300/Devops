@@ -4,13 +4,13 @@ pipeline {
     
     stages {
 
-        stage('checkout from Dev Branch') {
+        stage('checkout from Main Branch') {
 
             steps{
 
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/Dev']], 
+                    branches: [[name: '*/main']], 
                     extensions: [],
                     userRemoteConfigs: [[url: 'https://github.com/bobby5300/Devops.git']]
                       ])
@@ -18,11 +18,12 @@ pipeline {
             }
         }
 
-        stage('Merge Dev to Master') {
+        stage('Artifacts') {
 
             steps {
                 
-                sh 'git merge origin/main'
+                archiveArtifacts artifacts: '/*.txt', followSymlinks: false
+                echo pwd
             }
 
         }
