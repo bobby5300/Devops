@@ -21,7 +21,16 @@ pipeline {
         stage('Merge Dev to Master') {
 
             steps {
-                echo "Merge Dev Code"
+                
+                withCredentials([
+
+                    gitUsernamePassword(credentialsId: 'a4c7b0a4-f2d8-433a-95ab-4a5515cd24f8', gitToolName: 'Default')
+                    
+                    ]) {                
+                    
+                    sh "git push"
+                
+                }
             }
 
         }
