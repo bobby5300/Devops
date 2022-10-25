@@ -20,7 +20,7 @@ pipeline {
 
         stage('Merge Dev to Master') {
 
-            stage {
+            steps {
                 echo "Merge Dev Code"
             }
 
