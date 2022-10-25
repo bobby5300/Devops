@@ -4,11 +4,11 @@ pipeline {
     
     stages {
 
-        stage('checkout') {
+        stage('checkout' from Dev) {
 
             steps{
 
-                echo 'Building..'
+                checkout([$class: 'GitSCM', branches: [[name: '*/Dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/bobby5300/Devops.git']]])
 
             }
 
