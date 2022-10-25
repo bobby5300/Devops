@@ -22,7 +22,7 @@ pipeline {
 
             steps {
                 
-                sh 'git merge main'
+                sh 'git merge origin/main'
             }
 
         }
