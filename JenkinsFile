@@ -22,7 +22,7 @@ pipeline {
 
             steps {
                 
-                archiveArtifacts artifacts: '/*.txt', followSymlinks: false
+                archiveArtifacts artifacts: '**/*.txt', followSymlinks: false
                 echo pwd
             }
 
