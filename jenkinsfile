@@ -1,0 +1,38 @@
+pipeline {
+
+    agent any
+    
+    stages {
+
+        stage('checkout from Main Branch') {
+
+            steps{
+
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']], 
+                    extensions: [],
+                    userRemoteConfigs: [[url: 'https://github.com/bobby5300/Devops.git']]
+                      ])
+
+            }
+        }
+
+        stage('Artifacts') {
+
+            steps {
+                
+                archiveArtifacts artifacts: '/*.txt', followSymlinks: false
+                echo pwd
+            }
+
+        }
+
+            
+
+        
+
+
+    }
+
+}
