@@ -1,0 +1,22 @@
+---
+- name: Intro to Ansible Playbooks
+  hosts: localhost
+
+  tasks:
+    -name: Copy files hosts with Permissions
+     copy:
+        src: ./hosts
+        dest: /tmp/hosts_backup
+        mode: '0644'
+
+    -name: Add the user 'bob'
+     copy:
+        name: bob
+      become: yes
+      become_method: sudo
+
+    -name: upgrade all apt packages
+      apt:
+          force_apt_get: yes
+          upgrade: yes
+      become: yes    

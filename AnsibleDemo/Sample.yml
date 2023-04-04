@@ -1,5 +1,0 @@
----
-  name: ping
-  hosts: all
-  taks:
-    - action: ping 

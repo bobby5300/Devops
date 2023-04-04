@@ -1,0 +1,29 @@
+
+# 1. Create Yaml file
+# 2. Yaml file must contain details of ngix deployement 
+# 3. deployement must have 3 replicas
+# 4. App name must be xyz
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xyz
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ngix
+  template:
+    metadata:
+      labels:
+        app: ngix
+    spec:
+      containers:
+      - name: ngix
+        image: docker pull ngix
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
