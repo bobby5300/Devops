@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myappapache
+  labels:
+    name: myappapache
+spec:
+  containers:
+  - name: apache-container
+    image: registry.hub.docker.com/library/httpd
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
